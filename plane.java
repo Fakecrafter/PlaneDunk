@@ -15,8 +15,15 @@ class Plane {
 		heading = new GLVektor(1,0,0);
 	}
 
+	public void headUp() {}
+	public void headDown() {}
+	public void headLeft() {}
+	public void headRight() {}
+
 	public void run() {
 		position.addiere(heading);
 		body.setzePosition(position);
 	}
+
+	public void getCenter() {}
 }
