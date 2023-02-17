@@ -6,11 +6,17 @@ import GLOOP.*;
 class Plane {
 	private GLQuader body;
 	private GLVektor position;
-	private int dx;
-	private int dy;
+	// in welche Richtung zeigt, das Flugzeug
+	private GLVektor heading;
 
-	public Plane() {}
+	public Plane() {
+		body = new GLQuader();
+		position = new GLVektor(0,50,0);
+		heading = new GLVektor(1,0,0);
+	}
 
-	public void bewege() {}
-	public void run() {}
+	public void run() {
+		position.addiere(heading);
+		body.setzePosition(position);
+	}
 }
