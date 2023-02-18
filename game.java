@@ -26,6 +26,7 @@ class Game {
 	}
 	public static void main() {
 		while (true) {
+			checkKeyboard();
 			plane.run();
 		}
 	}
