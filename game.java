@@ -10,9 +10,13 @@ class Game {
 	private GLTastatur keyboard;
 	private Plane plane;
 	private Ring[] rings;
+	private GLBoden floor;
+	private GLHimmel sky;
 
 	public Game() {
 		rand = new Random();
+		floor = new GLBoden();
+		sky = new GLHimmel();
 		cam = new GLEntwicklerkamera(); // spaeter in Schwenkkamera aendern
 		light = new GLLicht();
 		keyboard = new GLTastatur();
@@ -26,10 +30,13 @@ class Game {
 	}
 	public static void main() {
 		while (true) {
+			//checkCollision();
 			checkKeyboard();
 			plane.run();
+			Sys.warte(17);
 		}
 	}
+	// ueberprueft die Tastatureingaben
 	void checkKeyboard() {
 		if (keyboard.oben()){plane.up()}
 		if (keyboard.unten()){plane.down()}
