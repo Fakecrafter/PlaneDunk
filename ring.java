@@ -9,5 +9,7 @@ class Ring {
 		body = new GLTorus(position, 50, 7);
 		body.setzeFarbe(0.81, 0.33, 0.0);
 	}
-	public GLVektor getPosition() {}
+	public GLVektor getCenter() {
+		return position;
+	}
 }

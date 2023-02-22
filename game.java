@@ -15,8 +15,8 @@ class Game {
 
 	public Game() {
 		rand = new Random();
-		floor = new GLBoden();
-		sky = new GLHimmel();
+		floor = new GLBoden("textures/boden.jpg");
+		sky = new GLHimmel("textures/himmel.jpg");
 		cam = new GLEntwicklerkamera(); // spaeter in Schwenkkamera aendern
 		light = new GLLicht();
 		keyboard = new GLTastatur();
@@ -28,9 +28,9 @@ class Game {
 			rings[i] = new Ring(i*20, 50, i*20);
 		}
 	}
-	public static void main() {
+	public void main() {
 		while (true) {
-			//checkCollision();
+			checkCollision();
 			checkKeyboard();
 			plane.run();
 			Sys.warte(17);
@@ -38,10 +38,12 @@ class Game {
 	}
 	// ueberprueft die Tastatureingaben
 	void checkKeyboard() {
-		if (keyboard.oben()){plane.up()}
-		if (keyboard.unten()){plane.down()}
-		if (keyboard.links()){plane.left()}
-		if (keyboard.rechts()){plane.right()}
+		if (keyboard.oben()){plane.headUp();}
+		if (keyboard.unten()){plane.headDown();}
+		if (keyboard.links()){plane.headLeft();}
+		if (keyboard.rechts()){plane.headRight();}
+	}
+	void checkCollision() {
 	}
 }
 

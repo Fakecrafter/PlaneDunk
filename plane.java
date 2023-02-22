@@ -8,23 +8,23 @@ class Plane {
 	private GLVektor position;
 	// in welche Richtung zeigt das Flugzeug
 	private GLVektor heading;
-	private double speed;
+	private double speed ;
 
 	public Plane() {
-		body = new GLQuader();
 		position = new GLVektor(0,50,0);
+		body = new GLQuader(position,10,10,10);
 		heading = new GLVektor(1,0,0);
 	}
 
 	// bewege Flugzeug nach oben
 	public void headUp() {
 		heading.addiere(new GLVektor(0, 0.5, 0));
-		heading.skaliere(1.0);
+		heading.skaliereAuf(1.0);
 	}
 	// bewege Flugzeug nach unten
 	public void headDown() {
 		heading.addiere(new GLVektor(0, -0.5, 0));
-		heading.skaliere(1.0);
+		heading.skaliereAuf(1.0);
 	}
 
 	// bewege Flugzeug nach links
@@ -45,5 +45,5 @@ class Plane {
 	public GLVektor getCenter() {
 		return position;
 	}
-	public GLVektor getOptimalCameraPosition() {}
+	//public GLVektor getOptimalCameraPosition() {}
 }
