@@ -19,13 +19,13 @@ class Plane {
 
 	// bewege Flugzeug nach oben
 	public void headUp() {
-		heading.addiere(new GLVektor(0, 0.5, 0));
-		heading.skaliereAuf(1.0);
+		GLVektor axis = new GLVektor(heading.gibZ(), 0, -1.0 * heading.gibX());
+		heading.rotiere(0.5, axis);
 	}
 	// bewege Flugzeug nach unten
 	public void headDown() {
-		heading.addiere(new GLVektor(0, -0.5, 0));
-		heading.skaliereAuf(1.0);
+		GLVektor axis = new GLVektor(heading.gibZ(), 0, -1.0 * heading.gibX());
+		heading.rotiere(-0.5, axis);
 	}
 
 	// bewege Flugzeug nach links
