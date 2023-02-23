@@ -31,12 +31,12 @@ class Plane {
 	// bewege Flugzeug nach links
 	public void headLeft() {
 		heading.drehe(0, -0.5, 0);
-		body.rotate(-0.5, position, position.addiere(new GLVektor(0,1,0));
+		body.rotate(-0.5, position, position.addiere(new GLVektor(0,1,0)));
 	}
 	// bewege Flugzeug nach rechts
 	public void headRight() {
 		heading.drehe(0, 0.5, 0);
-		body.rotate(0.5, position, position.addiere(new GLVektor(0,1,0));
+		body.rotate(0.5, position, position.addiere(new GLVektor(0,1,0)));
 	}
 
 	// jede Iteration muss sich das Flugzeug weiterbewegen
