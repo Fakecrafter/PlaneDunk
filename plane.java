@@ -10,6 +10,7 @@ class Plane {
 	private GLVektor heading;
 	private double speed ;
 
+	// erstelle neues Flugzeug
 	public Plane() {
 		position = new GLVektor(0,50,0);
 		body = new GLQuader(position,10,10,10);
@@ -38,6 +39,10 @@ class Plane {
 
 	// jede Iteration muss sich das Flugzeug weiterbewegen
 	public void run() {
+		// ueberpruefen, ob das Flugzeug sich unter dem Boden befindet
+		if(position.GibY() <= 10) {
+			heading = new GLVektor(heading.gibX(), 0, heading.gibZ());
+		}
 		position.addiere(heading);
 		body.setzePosition(position);
 	}

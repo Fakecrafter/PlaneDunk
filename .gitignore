@@ -20,6 +20,7 @@
 *.rar
 
 # Documents
+.*.*
 *.org
 *.pdf
 *.tex
