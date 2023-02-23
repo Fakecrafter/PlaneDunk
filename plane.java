@@ -31,18 +31,18 @@ class Plane {
 	// bewege Flugzeug nach links
 	public void headLeft() {
 		heading.drehe(0, -0.5, 0);
-		body.rotate(-0.5, position, position.addiere(new GLVektor(0,1,0)));
+		body.rotiere(-0.5, position, new GLVektor(0,1,0));
 	}
 	// bewege Flugzeug nach rechts
 	public void headRight() {
 		heading.drehe(0, 0.5, 0);
-		body.rotate(0.5, position, position.addiere(new GLVektor(0,1,0)));
+		body.rotiere(0.5, position, new GLVektor(0,1,0));
 	}
 
 	// jede Iteration muss sich das Flugzeug weiterbewegen
 	public void run() {
 		// ueberpruefen, ob das Flugzeug sich unter dem Boden befindet
-		if(position.GibY() <= 10) {
+		if(position.gibY() <= 10) {
 			heading = new GLVektor(heading.gibX(), 0, heading.gibZ());
 		}
 		position.addiere(heading);
