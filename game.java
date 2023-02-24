@@ -14,16 +14,16 @@ class Game {
 
 	public Game() {
 		rand = new Random();
-		floor = new GLBoden("textures/boden.jpg");
+		floor = new GLBoden("textures/boden.png");
 		sky = new GLHimmel("textures/himmel.jpg");
-		cam = new GLEntwicklerkamera(); // spaeter in Schwenkkamera aendern
+		cam = new GLSchwenkkamera();
 		light = new GLLicht();
 		keyboard = new GLTastatur();
 		plane = new Plane();
 		rings = new Ring[10];
 		score = 0;
 		for(int i=0; i<10; i++) {
-			rings[i] = new Ring(2000, 100, 2000);
+			rings[i] = new Ring(8000, 1000, 8000);
 		}
 	}
 	public void main() {
@@ -37,13 +37,13 @@ class Game {
 		}
 	}
 	// ueberprueft die Tastatureingaben
-	void checkKeyboard() {
+	private void checkKeyboard() {
 		if (keyboard.oben()){plane.headUp();}
 		if (keyboard.unten()){plane.headDown();}
 		if (keyboard.links()){plane.headLeft();}
 		if (keyboard.rechts()){plane.headRight();}
 	}
-	void checkCollision() {
+	private void checkCollision() {
 		double distance;
 		GLVektor planePos = plane.getCenter();
 		// Kollision mit allen Ringen ueberpruefen
