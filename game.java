@@ -16,10 +16,12 @@ class Game {
 		rand = new Random();
 		floor = new GLBoden("textures/boden.png");
 		sky = new GLHimmel("textures/himmel.jpg");
+		plane = new Plane();
 		cam = new GLSchwenkkamera();
+		cam.setzePosition(plane.getOptimalCameraPosition());
+		cam.setzeBlickpunkt(plane.getCenter());
 		light = new GLLicht();
 		keyboard = new GLTastatur();
-		plane = new Plane();
 		rings = new Ring[10];
 		score = 0;
 		for(int i=0; i<10; i++) {
@@ -32,8 +34,9 @@ class Game {
 			checkCollision();
 			checkKeyboard();
 			plane.run();
+			cam.setzePosition(plane.getOptimalCameraPosition());
 			cam.setzeBlickpunkt(plane.getCenter());
-			Sys.warte(17);
+			Sys.warte(10);
 		}
 	}
 	// ueberprueft die Tastatureingaben
@@ -48,14 +51,15 @@ class Game {
 		GLVektor planePos = plane.getCenter();
 		// Kollision mit allen Ringen ueberpruefen
 		for(int i=0; i<rings.length; i++) {
-			GLVektor ringPos = rings[i].getCenter();
-			ringPos.subtrahiere(planePos);
+			GLVektor tmp = rings[i].getCenter();
+			tmp.subtrahiere(planePos);
 			// wie weit ist das Flugzeug vom Mittelpunkt eines Rings entfernt
-			distance = Math.sqrt(ringPos.gibX() * ringPos.gibX() + ringPos.gibY() * ringPos.gibY() + ringPos.gibZ() * ringPos.gibZ());
+			distance = Math.sqrt(tmp.gibX() * tmp.gibX() + tmp.gibY() * tmp.gibY() + tmp.gibZ() * tmp.gibZ());
 
 			if(distance < 5) {
+				rings[i].setzeSichtbarkeit(false);
 				rings[i].loesche();
-				rings[i] = new Ring(2000, 100, 2000);
+				rings[i] = new Ring(8000, 1000, 8000);
 				score++;
 			}
 		}
