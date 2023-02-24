@@ -56,7 +56,7 @@ class Game {
 			// wie weit ist das Flugzeug vom Mittelpunkt eines Rings entfernt
 			distance = Math.sqrt(tmp.gibX() * tmp.gibX() + tmp.gibY() * tmp.gibY() + tmp.gibZ() * tmp.gibZ());
 
-			if(distance < 5) {
+			if(distance < 40) {
 				rings[i].setzeSichtbarkeit(false);
 				rings[i].loesche();
 				rings[i] = new Ring(8000, 1000, 8000);

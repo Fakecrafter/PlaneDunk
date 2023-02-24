@@ -5,9 +5,8 @@ class Ring {
 	GLVektor position;
 	
 	public Ring(int x, int y, int z) {
-		position = new GLVektor(Math.random() * x,20 + Math.random() * y,Math.random() * z);
-		body = new GLTorus(position, 40, 4);
-		body.setzeSelbstleuchten(1,1,1);
+		position = new GLVektor(Math.random() * x,60 + Math.random() * y,Math.random() * z);
+		body = new GLTorus(position, 60, 4);
 		body.setzeFarbe(0.81, 0.33, 0.0);
 	}
 	public GLVektor getCenter() {
