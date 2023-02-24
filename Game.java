@@ -57,7 +57,7 @@ class Game {
 			distance = Math.sqrt(tmp.gibX() * tmp.gibX() + tmp.gibY() * tmp.gibY() + tmp.gibZ() * tmp.gibZ());
 
 			if(distance < 40) {
-				rings[i].setzeSichtbarkeit(false);
+				//rings[i].setzeSichtbarkeit(false);
 				rings[i].loesche();
 				rings[i] = new Ring(8000, 1000, 8000);
 				score++;

@@ -15,7 +15,7 @@ class Plane {
 		position = new GLVektor(0,200,0);
 		body = new GLKugel(position,20);
 		heading = new GLVektor(1,0,0);
-		speed = 40.0;
+		speed = 5.0;
 	}
 
 	// bewege Flugzeug nach oben
@@ -56,7 +56,7 @@ class Plane {
 		return position;
 	}
 	public GLVektor getOptimalCameraPosition() {
-		GLVektor tmp = new GLVektor(position.gibX() - (heading.gibX() * 5), position.gibY() + 10, position.gibZ() - (heading.gibZ() * 5));
+		GLVektor tmp = new GLVektor(position.gibX() - (heading.gibX() * 20), position.gibY() + 10, position.gibZ() - (heading.gibZ() * 20));
 		return tmp;
 	}
 }
